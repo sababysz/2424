@@ -1,0 +1,245 @@
+#burger-toggle {
+
+  position: relative;
+  appearance: none;
+  opacity: 0;
+  display: none;
+
+}
+
+#burger-toggle:checked ~ .menu {
+  opacity: 1;
+  visibility: visible;
+}
+
+#burger-toggle:checked ~ .menu .menu-nav-link span div,
+#burger-toggle:checked ~ .menu img,
+#burger-toggle:checked ~ .menu .title p {
+  transform: translateY(0);
+  transition: 1.2s 0.1s cubic-bezier(0.1, 0, 0.06, 1);
+}
+#burger-toggle:checked ~ .menu .image-link:nth-child(1) img {
+  transition-delay: 0.1s;
+}
+#burger-toggle:checked ~ .menu .image-link:nth-child(2) img {
+  transition-delay: 0.1s;
+}
+#burger-toggle:checked ~ .menu .image-link:nth-child(3) img {
+  transition-delay: 0.1s;
+}
+#burger-toggle:checked ~ .menu .image-link:nth-child(4) img {
+  transition-delay: 0.2s;
+}
+#burger-toggle:checked ~ .burger-menu .line::after {
+  transform: translateX(0);
+}
+
+#burger-toggle:checked ~ .burger-menu .line:nth-child(1) {
+  transform: translateY(calc(var(--burger-menu-radius) / 30)) rotate(45deg);
+  background-color: #ffffff;
+}
+
+#burger-toggle:checked ~ .burger-menu .line:nth-child(2) {
+  transform: scaleX(0);
+  background-color: #ffffff;
+}
+#burger-toggle:checked ~ .burger-menu .line:nth-child(3) {
+  transform: translateY(calc(var(--burger-menu-radius) / -5)) rotate(-45deg);
+  background-color: #ffffff;
+}
+
+
+/* menu */
+
+.burger-menu {
+
+    --burger-menu-radius: 5em;
+    position: fixed;
+    top: -16px;
+    right: 0%;
+    z-index: 99;
+    display: block;
+    width: var(--burger-menu-radius);
+    height: var(--burger-menu-radius);
+    outline: none;
+    cursor: pointer;
+}
+
+.burger-menu .line {
+  position: absolute;
+  left: 25%;
+  width: 50%;
+  height: 3px;
+  background: silver;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: 0.2s;
+}
+
+.burger-menu .line:nth-child(1) {
+
+  top: 42%;
+
+}
+
+.burger-menu .line:nth-child(2) {
+
+  top: 52%;
+
+}
+
+.burger-menu .line:nth-child(3) {
+
+  top: 63%;
+
+}
+
+.burger-menu .line::after {
+
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-color-darker);
+  transform: translateX(-100%);
+  transition: 0.1s;
+
+}
+
+.burger-menu .line:nth-child(2)::after {
+  transition-delay: 0.0s;
+}
+
+.burger-menu .line:nth-child(3)::after {
+  transition-delay: 0.1s;
+
+}
+
+.burger-menu:hover .line::after {
+  transform: translateX(0);
+  transition-delay: 0.1s;
+
+}
+
+
+/* fundo do menu */
+
+.menu {
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  display: flex;
+  overflow-x: hidden;
+  visibility: hidden;
+  transition: 0.3s;
+  margin-left: 110px;
+  box-shadow: 0 0 20px #000;
+  background: hsla(0, 100%, 0%, 0.5);
+  backdrop-filter: blur(1rem);
+  z-index: 2;
+}
+
+
+/* fundo do menu */
+
+
+@media screen and (max-width: 750px) {
+  .menu {
+    display: block;
+  }
+}
+
+.menu-nav {
+
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  list-style-type: none;
+  margin-top: 20%;
+  position: absolute;
+}
+
+@media screen and (max-width: 750px) {
+  .menu-nav {
+    flex-direction: column;
+  }
+}
+.menu-nav-item {
+
+    flex: 1;
+    display: block;
+    margin-right: 10px;
+    margin: 20px;
+    align-items: center;
+}
+
+/* posição das linhas do menu*/
+
+.menu-nav-link {
+  margin-left: 60%;
+  position: relative;
+  display: inline-flex;
+  font-size: 2rem;
+  color: white;
+  text-decoration: none;
+
+}
+
+
+
+#perfilogo {
+  width: 45px;
+  position: absolute;
+  top: 500px;
+  left: 85%;
+  box-shadow: rgba(0, 0, 0, 0.9);
+  z-index: 99;
+}
+
+
+.menu-nav-link span {
+  overflow: hidden;
+}
+.menu-nav-link span div {
+  transform: translateY(102%);
+}
+.menu-nav-link::after {
+  position: absolute;
+  content: "";
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: gray;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s;
+}
+.menu-nav-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+
+
+
+.titulo-psic h1 {
+  text-align: center;
+  position: absolute;
+  text-align: center;
+  position: absolute;
+  top: 24%;
+  left: 65%;
+  transform: translate(-50%, -50%);
+  font-size: 45px;
+}
